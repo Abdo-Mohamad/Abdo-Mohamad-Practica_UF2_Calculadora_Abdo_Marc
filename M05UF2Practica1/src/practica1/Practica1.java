@@ -60,44 +60,38 @@ public class Practica1 {
                 comprobar = true;
                 switch (operacion) {
                     case "+":
-                        res = n2 + n2;
+                        res = nume1 + nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                     case "-":
-                        res = n1 - n2;
+                        res = nume1 - nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                     case "x":
                     case "X":
-                        res = n1 * n2;
+                        res = nume1 * nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                     case "/":
-                        while (n2 == 0) {
-                            do {
-                                System.err.println(" Al denominador hi ha un zero \n"
-                                        + "per a  evitar errors coloca un altre valor.");
-                                numero2 = sc.nextLine();
-                            } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
+                        while (nume2 == 0) {
+                            System.err.println(" Al denominador hi ha un zero \n"
+                                    + "per a evitar errors coloca un altre valor.");
+                            numero2 = sc.nextLine();
                             nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
                         }
-                        res = n1 / n2;
+                        res = nume1 / nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                     case "*":
-                        res = Math.pow(n1, n1);
+                        res = Math.pow(nume1, nume2); // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                     case "%":
-                        while (n2 == 0) {
-                            do {
-                                System.err.println(" Al denominador hi ha un zero \n"
-                                        + "per a  evitar errors coloca un altre valor.");
-                                numero2 = sc.nextLine();
-                            } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
+                        while (nume2 == 0) {
+                            System.err.println(" Al denominador hi ha un zero \n"
+                                    + "per a evitar errors coloca un altre valor.");
+                            numero2 = sc.nextLine();
                             nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
                         }
-                        res = n1 % n2;
+                        res = nume1 % nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
                 }
-            } while (comprobar != true);
+            } while (!comprobar);
 
             System.out.println("(" + numero1 + ") " + operacion + " (" + numero2 + ")" + " = " + res);
             System.out.println("\n Vols continuar operant? \n");
@@ -116,7 +110,7 @@ public class Practica1 {
                         System.err.println("\n Error, posa un valor vàlid. \n");
                         comprobar = false;
                 }
-            } while (comprobar != true);
+            } while (!comprobar);
         } while (operacion.equals("s") || operacion.equals("S"));
     }
 }
