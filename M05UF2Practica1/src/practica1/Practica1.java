@@ -19,8 +19,9 @@ public class Practica1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double res = 0;
-        String operacion = null;
-        boolean comprobar = false;
+        String operacion;
+        boolean comprobar;
+
 
         do {
 
@@ -29,8 +30,8 @@ public class Practica1 {
                 System.out.println("\n Introdueix el primer numero. ");
                 numero1 = sc.nextLine();
             } while (!numero1.matches("[+-]?[\\d]*[.]?[\\d]+"));
+            // Cambio: Utilizar nume1 en lugar de n1
             double nume1 = Double.parseDouble(numero1);
-            double n1 = new Double(numero1);
 
             // Menú de opciones
             System.out.println("\n--- Calculadora ---");
@@ -52,6 +53,7 @@ public class Practica1 {
                     System.out.print("Elija una opción: ");
                     sc.next();
                 }
+
                 opcion = sc.nextInt();
             } while (opcion < 1 || opcion > 7); // Verificar si la opción es válida
 
@@ -65,38 +67,39 @@ public class Practica1 {
                 System.out.println("\n Introdueix el segon numero.");
                 numero2 = sc.nextLine();
             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
-            double nume2 = Double.parseDouble(numero2);
-            double n2 = new Double(numero2);
+            // Cambio: Utilizar nume2 en lugar de n2
+            double nume2 = Double.parseDouble(numero2); 
 
             do {
                 comprobar = true;
                 switch (opcion) {
                     case 1:
-                        res = n2 + n2;
+                         res = nume1 + nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         operacion = "+";
                         break;
                     case 2:
-                        res = n1 - n2;
+                       res = nume1 - nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         operacion = "-";
                         break;
 
                     case 3:
-                        res = n1 * n2;
+                 res = nume1 * nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         operacion = "x";
                         break;
                     case 4:
-                        while (n2 == 0) {
+                        while (nume2 == 0) {
                             do {
                                 System.err.println(" Al denominador hi ha un zero \n"
                                         + "per a  evitar errors coloca un altre valor.");
                                 numero2 = sc.nextLine();
                             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
+
                             nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
                         }
-                        res = n1 / n2;
-                        operacion = "/";
+                     
+                    res = nume1 / nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         break;
+                       
                     case 5:
                         res = Math.pow(n1, n1);
                         operacion = "^";
@@ -109,13 +112,14 @@ public class Practica1 {
                                 numero2 = sc.nextLine();
                             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
                             nume2 = Double.parseDouble(numero2);
-                            n2 = new Double(numero2);
                         }
-                        res = n1 % n2;
+
+                        res = nume1 % nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
                         operacion = "%";
+
                         break;
                 }
-            } while (comprobar != true);
+            } while (!comprobar);
 
             System.out.println("(" + numero1 + ") " + operacion + " (" + numero2 + ")" + " = " + res);
             System.out.println("\n Vols continuar operant? \n");
@@ -134,7 +138,7 @@ public class Practica1 {
                         System.err.println("\n Error, posa un valor vàlid. \n");
                         comprobar = false;
                 }
-            } while (comprobar != true);
+            } while (!comprobar);
         } while (operacion.equals("s") || operacion.equals("S"));
     }
 }
