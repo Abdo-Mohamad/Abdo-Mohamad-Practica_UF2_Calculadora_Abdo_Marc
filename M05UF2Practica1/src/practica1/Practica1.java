@@ -20,7 +20,7 @@ public class Practica1 {
         Scanner sc = new Scanner(System.in);
         double res = 0;
         String operacion;
-        boolean comprobar = false;
+        boolean comprobar;
 
         do {
 
