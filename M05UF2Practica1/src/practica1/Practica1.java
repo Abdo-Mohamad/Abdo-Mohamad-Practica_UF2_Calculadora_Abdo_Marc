@@ -19,7 +19,7 @@ public class Practica1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double res = 0;
-        String operacion;
+        String operacion = null;
         boolean comprobar = false;
 
         do {
@@ -32,21 +32,34 @@ public class Practica1 {
             double nume1 = Double.parseDouble(numero1);
             double n1 = new Double(numero1);
 
-            do {
-                System.out.println("\n Operació? (Indica el signe)");
-                System.out.println("+ = sumar \n - = restar \n"
-                        + " x = multiplicar \n / = dividir \n * = elevar primer num al segon num."
-                        + "\n % = residu");
-                operacion = sc.nextLine();
-                if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x")
-                        || operacion.equals("X") || operacion.equals("/") || operacion.equals("%")
-                        || operacion.equals("*")) {
-                    comprobar = true;
-                } else {
-                    comprobar = false;
-                }
-            } while (comprobar != true);
+            // Menú de opciones
+            System.out.println("\n--- Calculadora ---");
+            System.out.println("Selecciona la operación:");
+            System.out.println("1. Suma (+)");
+            System.out.println("2. Resta (-)");
+            System.out.println("3. Multiplicación (x)");
+            System.out.println("4. División (/)");
+            System.out.println("5. Potencia (^)");
+            System.out.println("6. Resto (%)");
+            System.out.println("7. Salir");
 
+            int opcion = 0;
+            do {
+                // Validación de la entrada del usuario para elegir una opción del menú
+                System.out.print("Elija una opción: ");
+                while (!sc.hasNextInt()) {
+                    System.out.println("Por favor, ingrese un número válido.");
+                    System.out.print("Elija una opción: ");
+                    sc.next();
+                }
+                opcion = sc.nextInt();
+            } while (opcion < 1 || opcion > 7); // Verificar si la opción es válida
+
+            if (opcion == 7) {
+                // Salir del programa si se selecciona la opción 7
+                System.out.println("¡Hasta luego!");
+                break;
+            }
             String numero2;
             do {
                 System.out.println("\n Introdueix el segon numero.");
@@ -57,18 +70,21 @@ public class Practica1 {
 
             do {
                 comprobar = true;
-                switch (operacion) {
-                    case "+":
+                switch (opcion) {
+                    case 1:
                         res = n2 + n2;
+                        operacion = "+";
                         break;
-                    case "-":
+                    case 2:
                         res = n1 - n2;
+                        operacion = "-";
                         break;
-                    case "x":
-                    case "X":
+
+                    case 3:
                         res = n1 * n2;
+                        operacion = "x";
                         break;
-                    case "/":
+                    case 4:
                         while (n2 == 0) {
                             do {
                                 System.err.println(" Al denominador hi ha un zero \n"
@@ -79,11 +95,13 @@ public class Practica1 {
                             n2 = new Double(numero2);
                         }
                         res = n1 / n2;
+                        operacion = "/";
                         break;
-                    case "*":
+                    case 5:
                         res = Math.pow(n1, n1);
+                        operacion = "^";
                         break;
-                    case "%":
+                    case 6:
                         while (n2 == 0) {
                             do {
                                 System.err.println(" Al denominador hi ha un zero \n"
@@ -94,6 +112,7 @@ public class Practica1 {
                             n2 = new Double(numero2);
                         }
                         res = n1 % n2;
+                        operacion = "%";
                         break;
                 }
             } while (comprobar != true);
