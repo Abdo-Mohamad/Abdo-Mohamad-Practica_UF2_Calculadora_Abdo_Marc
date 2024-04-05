@@ -15,7 +15,8 @@ public class Practica1 {
         do {
             System.out.println(mensaje);
             input = sc.nextLine();
-        } while (!input.matches("[+-]?[\\d]*[.]?[\\d]+")); // Comprueba si es un número válido
+            // Comprueba si es un número válido
+        } while (!input.matches("[+-]?[\\d]*[.]?[\\d]+")); 
         return Double.parseDouble(input);
     }
 
