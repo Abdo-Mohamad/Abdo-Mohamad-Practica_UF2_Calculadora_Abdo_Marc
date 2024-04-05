@@ -86,7 +86,7 @@ public class Practica1 {
 
             // Mostrar el resultado en formato de calculadora
             System.out.println("\n*******************************");
-            System.out.println("Resultado: " + res);
+            System.out.println("Resultado: " + n1 + " " + operacion + " " + n2 + " = (" + res +")");
             System.out.println("*******************************");
 
             // Preguntar si desea continuar operando
