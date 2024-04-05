@@ -54,7 +54,7 @@ public class Practica1 {
                 numero2 = sc.nextLine();
             } while (!numero2.matches("[+-]?[\\d]*[.]?[\\d]+"));
             // Cambio: Utilizar nume2 en lugar de n2
-            double nume2 = Double.parseDouble(numero2); 
+            double nume2 = Double.parseDouble(numero2);
 
             do {
                 comprobar = true;
@@ -76,10 +76,12 @@ public class Practica1 {
                             numero2 = sc.nextLine();
                             nume2 = Double.parseDouble(numero2);
                         }
-                        res = nume1 / nume2; // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
+                        // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
+                        res = nume1 / nume2;
                         break;
                     case "*":
-                        res = Math.pow(nume1, nume2); // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
+                        // Cambio: Utilizar nume1 y nume2 en lugar de n1 y n2
+                        res = Math.pow(nume1, nume2);
                         break;
                     case "%":
                         while (nume2 == 0) {
